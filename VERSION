@@ -1,0 +1,7 @@
+v2.5
+changes:
+improves in 'arrangedInfo.py'
+improves in 'grabInfo.py'
+
+bugs:
+Texture in black when you swype two VIP badge
