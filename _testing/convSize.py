@@ -12,6 +12,7 @@ from unidecode import unidecode
 
 
 photosPath = '../Resources/Texture/Photos/'
+#http://vmrelease:1011/api/v1/employee/getactiveemployees
 
 with open('../Resources/GetAllEmployees.json') as jsonData:
 	jsonObject = load(jsonData)
