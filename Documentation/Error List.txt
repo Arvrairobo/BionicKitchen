@@ -37,4 +37,4 @@ Description:
 Error code: 150000 or 0x249f0:
 Title:	'Error to submit and update info to log service'
 Description: The script 'grabInfo.py' can't upload new information to
-database.
+ database.

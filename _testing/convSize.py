@@ -7,8 +7,6 @@ from os import listdir, system, remove, getcwd
 from os.path import isfile, join, basename, dirname, realpath
 from grabInfo import ViewMySQLdb
 from unidecode import unidecode
-#basename(dirname(realpath(__file__)))
-#onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 
 photosPath = '../Resources/Texture/Photos/'
@@ -47,3 +45,9 @@ for files in listdir(photosPath):
 		system('convert ' + (photosPath + files) + ' -resize 300x300 ' + (photosPath + files.split('.')[0] + '.png'))
 		remove(photosPath + files)
 system('trash-empty')
+
+class GetJSON(object):
+	"""docstring for GetJSON"""
+	def __init__(self, arg):
+		super(GetJSON, self).__init__()
+		self.arg = arg
