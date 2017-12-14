@@ -1,2 +1,5 @@
 sudo apt install php-json
 sudo apt install git
+#https://thepi.io/how-to-use-your-raspberry-pi-as-a-wireless-access-point/
+sudo apt-get install hostapd
+sudo apt-get install dnsmasq
