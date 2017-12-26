@@ -4,4 +4,4 @@
 from os import system
 
 
-system('python2.7 -B /home/pi/Desktop/BionicKitchen/Resources/gui.py') # The flag -B is for no save __cache__
+system('python2.7 /home/pi/Desktop/BionicKitchen/Resources/gui.py')

@@ -1,29 +1,29 @@
 <NameLabel@Label>:
-	makeup: True
-	font_name: 'Font/Myriad Pro Regular.ttf'
-	font_size: '65sp'
-	color: (0.9, 0.9, 0.9, 1) #RGBA
-	text_size: 650, 580
-	halign: 'left'
-	valign: 'top'
+    makeup: True
+    font_name: 'Font/Myriad Pro Regular.ttf'
+    font_size: '65sp'
+    color: (0.9, 0.9, 0.9, 1) #RGBA
+    text_size: 650, 580
+    halign: 'left'
+    valign: 'top'
 
 <DishIDLabel@Label>:
-	makeup: True
-	font_name: 'Font/Myriad Pro Regular.ttf'
-	font_size: '50sp'
-	color: (0.1, 0.1, 0.1, 1) #RGBA
-	text_size: 650, 420
-	halign: 'left'
-	valign: 'top'
+    makeup: True
+    font_name: 'Font/Myriad Pro Regular.ttf'
+    font_size: '50sp'
+    color: (0.1, 0.1, 0.1, 1) #RGBA
+    text_size: 650, 420
+    halign: 'left'
+    valign: 'top'
 
 <DishNameLabel@Label>:
-	makeup: True
-	font_name: 'Font/Myriad Pro Regular.ttf'
-	font_size: '80sp'
-	color: (0.9, 0.9, 0.9, 1) #RGBA
-	text_size: 1200, 600
-	halign: 'center'
-	valign: 'bottom'
+    makeup: True
+    font_name: 'Font/Myriad Pro Regular.ttf'
+    font_size: '80sp'
+    color: (0.9, 0.9, 0.9, 1) #RGBA
+    text_size: 1200, 600
+    halign: 'center'
+    valign: 'bottom'
 
 <MainScreen>:
     name: 'first'
@@ -33,68 +33,61 @@
     photo: _id_img_photo
     ib: _id_img_ib
     company: _id_img_company
-    #poweroff: _id_img_poweroff
     
 
-	Label:
-		canvas:
-			Rectangle:
-				source: 'Texture/Background.png'                # Main background
-				pos: (0, 0)
-				size: self.size
-			Rectangle:
-				source: 'Texture/Logos/OTDC.png'                # Logo of OTDC
-				pos: (1300, 780)
-				size: 405, 100
-			Rectangle:
-				source: 'Texture/Interactive_background_2.png'  # Line red for name of employee
-				pos: (100, 670)
-				size: 1500, 80
-			Rectangle:
-				source: 'Texture/Interactive_background_1.png'  # Cover of photo(gray)
-				pos: (100, 445)
-				size: 320, 410
-			Rectangle:
-				source: ''                                      # Cover of photo(white)
-				pos: (105, 540)
-				size: 310, 310
-			Rectangle:
-				source: ''                                      # Cover of company image(white)
-				pos: (105, 450)
-				size: 310, 85
+    Label:
+        canvas:
+            Rectangle:
+                source: 'Texture/Background.png'                # Main background
+                pos: (0, 0)
+                size: self.size
+            Rectangle:
+                source: 'Texture/Logos/OTDC.png'                # Logo of OTDC
+                pos: (1300, 780)
+                size: 405, 100
+            Rectangle:
+                source: 'Texture/Interactive_background_2.png'  # Line red for name of employee
+                pos: (100, 670)
+                size: 1500, 80
+            Rectangle:
+                source: 'Texture/Interactive_background_1.png'  # Cover of photo(gray)
+                pos: (100, 445)
+                size: 320, 410
+            Rectangle:
+                source: ''                                      # Cover of photo(white)
+                pos: (105, 540)
+                size: 310, 310
+            Rectangle:
+                source: ''                                      # Cover of company image(white)
+                pos: (105, 450)
+                size: 310, 85
 
-	Image:
-		id: _id_img_photo                                       # Photo of employee
-		source: self.parent.source_photo
-		pos: (-540, 245)
-		size: 10, 10
+    Image:
+        id: _id_img_photo                                       # Photo of employee
+        source: self.parent.source_photo
+        pos: (-540, 245)
+        size: 10, 10
 
-	Image:
-		id: _id_img_ib                                          # Image of interactive background
-		source: self.parent.source_ib
-		pos: (0, -500)
-		size: 10, 10
+    Image:
+        id: _id_img_ib                                          # Image of interactive background
+        source: self.parent.source_ib
+        pos: (0, -500)
+        size: 10, 10
 
-	Image:
-		id: _id_img_company                                    # Logo company of employee
-		source: self.parent.source_company
-		pos: (-540, 37)
-		size: 10, 10
+    Image:
+        id: _id_img_company                                     # Logo company of employee
+        source: self.parent.source_company
+        pos: (-540, 37)
+        size: 10, 10
 
-	#Image:
-		#id: _id_img_poweroff                                   # Windows poweroff
-		#source: self.parent.source_poweroff
-		#pos: (50, 50)
-		#size: 10, 10
-
-	NameLabel:
-		id: _id_lbl_employee
-		text: 'Administrator'
-	
-	DishIDLabel:
-		id: _id_lbl_dishid
-		text: 'Status: In service'
-	
-	DishNameLabel:
-		id: _id_lbl_dish
-		text: 'Welcome to BionicKitchen'
+    NameLabel:
+        id: _id_lbl_employee
+        text: 'Admin'
+    
+    DishIDLabel:
+        id: _id_lbl_dishid
+        text: 'Status: Ready to serve'
+    
+    DishNameLabel:
+        id: _id_lbl_dish
+        text: 'Welcome to BK'
