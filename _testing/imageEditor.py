@@ -3,6 +3,7 @@ import sys
 from PIL import Image
 
 
+#find . -regex .*jpg | xargs python2.7 <file>.py
 def resize(img, box, fit, out):
     '''Downsample the image.
     @param img: Image -  an Image-object
@@ -35,11 +36,14 @@ def resize(img, box, fit, out):
     img.thumbnail(box, Image.ANTIALIAS)
 
     #save it into a file-like object
-    img.save(out, "PNG", quality=75)
+    img.save(out, "PNG", quality=95)
 if __name__ == '__main__':
+    realPath = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    photoPath = "/Resources/Texture/Photos/"
     for filename in sys.argv[1:]:
+        realName = filename.split(".")[1].split("/")[-1]+".png"
         img = Image.open(filename)
-        out = file(os.path.splitext(filename)[0]+".png", "w")
+        out = file(realPath+photoPath+realName, "w")
         resize(img, (300, 300), True, out)
         try:
             img.save(out, "PNG")
