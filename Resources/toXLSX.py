@@ -14,7 +14,7 @@ def convertXLSX():
         cur.execute("SELECT * FROM Current_menu JOIN Employees, Company WHERE Current_menu.employee_id=Employees.employee_id AND Current_menu.company_id=Company.company_id AND SUBSTR(Current_menu.date,1,10)=%s", (nowIs, ))
         rawData = cur.fetchall()
         if rawData:
-            workbook = Workbook('/home/pi/Desktop/BionicKitchen/Resources/Current_menu.xlsx')
+            workbook = Workbook("/home/pi/Desktop/BionicKitchen/Resources/Temp/Current_menu.xlsx")
             worksheet = workbook.add_worksheet(nowIs)
             worksheet.set_column('A:E', 40)
             cellFormat = workbook.add_format({'valign': 'center',
@@ -36,8 +36,6 @@ def convertXLSX():
             workbook.close()
             db.close()
         else:
-            print 'Error to read information from database!'
+            return "Error to read information from database!"
     except:
-        print 'Fatal Error'
-
-convertXLSX()
+        return "Fatal Error"
