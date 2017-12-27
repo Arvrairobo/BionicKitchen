@@ -35,7 +35,7 @@ class MainScreen(Screen):
 
     def update_data(self, sec):
         if GPIO.input(17):
-        	badgeData = throwInData()
+            badgeData = throwInData()
             self.badge = catchResult(badgeData)
             self.employee.text = OnScreen(self.badge).joinAll()[2]
             self.dish.text = OnScreen(self.badge).joinAll()[1]

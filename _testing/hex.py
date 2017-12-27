@@ -1,2 +1,2 @@
-
-print hex(150000)
+data = raw_input(": ")
+print hex(int(data))

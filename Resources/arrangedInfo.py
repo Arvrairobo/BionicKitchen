@@ -160,7 +160,7 @@ class Photo:
         try:
             if len(self.photo) <= 1:
                 return "Texture/Photos/00000-0-0.png"
-            elif self.photo.endswith() != ".png":
+            elif not self.photo.endswith(".png"):
                 return "Texture/Photos/00000-0-0.png"
             else:
                 return "Texture/Photos/{0}".format(self.photo)

@@ -36,7 +36,7 @@ def throwInData():
                         parity   = serial.PARITY_NONE,
                         port     = SERIAL_PORT,
                         stopbits = serial.STOPBITS_ONE,
-                        timeout  = 1)
+                        timeout  = None)
 
     # Wrap everything in a try block to catch any exceptions.
     try:
