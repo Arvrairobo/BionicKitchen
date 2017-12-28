@@ -1,8 +1,0 @@
-use mysql;
-create database <name DB>;
-use <name DB>;
-CREATE TABLE Employees(employee_id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(80) NOT NULL UNIQUE, badge VARCHAR(10) NOT NULL UNIQUE, company VARCHAR(1) NOT NULL, photo VARCHAR(15) NOT NULL UNIQUE, is_active VARCHAR(1) NOT NULL);
-INSERT INTO Employees(name, badge, company, photo, is_active) VALUES ("Carlos Raul Flores Carballo", "1300ECCD1D", "2", "EX0H4G_01_0.png", "1");
-
-<!-- TRUNCATE TABLES WITH FOREIGN-->
-TRUNCATE TABLE <namtable>
