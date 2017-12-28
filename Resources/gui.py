@@ -25,7 +25,7 @@ from createLog import logFile
 Builder.load_file("design.kv")
 
 class MainScreen(Screen):
-    def __init__(self, **kwargs): # For avoid the black images
+    def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
 
     source_photo = StringProperty(None)

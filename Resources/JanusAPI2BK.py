@@ -6,7 +6,7 @@ from json import load as jload
 from urllib import urlretrieve as urllibret
 from os import listdir, system, remove, getcwd
 from unidecode import unidecode as uni
-from ViewMySQLdb import ViewMySQLdb as db
+from ViewMySQLdb import ViewMySQLdb
 
 
 #http://vmrelease:1011/api/v1/employee/getactiveemployees
@@ -86,6 +86,7 @@ class JanusAPI2BK(object):
         while(count < self.lenObjJSON()):
             url = self.getPhotoURL(count)
             toVerf = self.getBambooHrId(count)
+            db = ViewMySQLdb().connDB()
             if not db.isDuplo(toVerf):
                 db.addInfo(self.prepare2DB(count))
             self.downloadPhotos(url)

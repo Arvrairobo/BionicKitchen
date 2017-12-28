@@ -52,6 +52,6 @@ class ViewMySQLdb(object):
         '''
         objDB = self.connDB()
         cur = objDB.cursor()
-        cur.execute("TRUNCATE TABLE %s", (arg1))
+        cur.execute("TRUNCATE TABLE %s", (arg1, ))
         objDB.commit()
         objDB.close()
