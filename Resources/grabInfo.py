@@ -1,6 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf8 -*-
 
+import os
 from datetime import datetime
 from createLog import logFile
 from ViewMySQLdb import ViewMySQLdb
@@ -11,12 +12,12 @@ def catchResult(badge):
     try:
         currentDay = str(datetime.now()).split()[0]
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         return "100000"
     try:
         db = ViewMySQLdb().connDB()
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         if e[0] == 1049:
             return "110000"
         elif e[0] == 1045:
@@ -27,7 +28,7 @@ def catchResult(badge):
         cur = db.cursor()
         cur.execute("SELECT * FROM Current_menu JOIN Employees, Company WHERE Current_menu.employee_id=Employees.employee_id AND Current_menu.company_id=Company.company_id")
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         return "120000"
     try:
         for row in cur.fetchall():
@@ -52,14 +53,14 @@ def catchResult(badge):
             return "130000"
         return "130010"
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         return "140000"
 
 def updateStatus(row):
     try:
         db = ViewMySQLdb().connDB()
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         if e[0] == 1049:
             return "110000"
         elif e[0] == 1045:
@@ -74,19 +75,19 @@ def updateStatus(row):
         db.close()
         return served
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         return "150000"
 
 def viewStatus(badge):
     try:
         currentDay = str(datetime.now()).split()[0]
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         return "100000"
     try:
         db = ViewMySQLdb().connDB()
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         if e[0] == 1049:
             return "110000"
         elif e[0] == 1045:
@@ -102,5 +103,5 @@ def viewStatus(badge):
                     db.close()
                     return row[5]
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         return "120000"

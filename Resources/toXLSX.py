@@ -19,7 +19,7 @@ def convertXLSX():
         cur.execute("SELECT * FROM Current_menu JOIN Employees, Company WHERE Current_menu.employee_id=Employees.employee_id AND Current_menu.company_id=Company.company_id AND SUBSTR(Current_menu.date,1,10)=%s", (nowIs, ))
         rawData = cur.fetchall()
         if rawData:
-            workbook = Workbook(realpath+tmpPath+"Current_menu.xlsx")
+            workbook = Workbook(realPath+tmpPath+"Current_menu.xlsx")
             worksheet = workbook.add_worksheet(nowIs)
             worksheet.set_column('A:E', 40)
             cellFormat = workbook.add_format({'valign': 'center',
@@ -40,12 +40,12 @@ def convertXLSX():
                                                          ]})
             workbook.close()
             db.close()
-            shutil.copy(realpath+tmpPath+"Current_menu.xlsx",
-                        realpath+tmpPath+"Service Control/Current_menu.xlsx")
-            os.rename(realpath+tmpPath+"Service Control/Current_menu.xlsx",
-                      realpath+tmpPath+"Service Control/{0}.xlsx".format(nowIs))
+            shutil.copy(realPath+tmpPath+"Current_menu.xlsx",
+                        realPath+tmpPath+"Service Control/Current_menu.xlsx")
+            os.rename(realPath+tmpPath+"Service Control/Current_menu.xlsx",
+                      realPath+tmpPath+"Service Control/{0}.xlsx".format(nowIs))
         else:
             return "Error to read information from database!"
     except Exception as e:
-        logFile(e)
+        logFile(str(e)+" in "+os.path.basename(__file__))
         return "Fatal Error"

@@ -1,6 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf8 -*-
 
+import os
 from errorList import Error
 from createLog import logFile
 
@@ -19,7 +20,7 @@ class Dish:
             else:
                 self.dish = data[2].split() # Verify if is normal employee
         except TypeError as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             if data in Error(data).errorList:
                 self.dish = data
             elif data[5] == "1":
@@ -43,7 +44,7 @@ class Dish:
                     dishName += '{0} '.format(spliting)
                 return dishName[1:-2]
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             return "Fatal error"
 
     def dishType(self):
@@ -62,7 +63,7 @@ class Dish:
                     dishName += "{0} ".format(spliting)
                 return dishName
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             return "Status: Fatal error"
 
 class Name:
@@ -75,7 +76,7 @@ class Name:
             else:
                 self.name = data[7].split()
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             self.name = ""
 
     def firstName(self):
@@ -88,7 +89,7 @@ class Name:
             else:
                 return self.name[1]
         except IndexError as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             return self.name
 
     def fullName(self):
@@ -104,7 +105,7 @@ class Company:
             else:
                 self.company = data[13]
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             self.company = ""
 
     def location(self):
@@ -116,7 +117,7 @@ class Company:
             else:
                 return "Texture/Logos/OTSA.png"
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             return "Texture/Logos/OTSA.png"
 
 class InteractiveBackground:
@@ -127,7 +128,7 @@ class InteractiveBackground:
             else:
                 self.thing = ""
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             self.thing = ""
 
     def chooseBackground(self):
@@ -143,7 +144,7 @@ class InteractiveBackground:
             else:
                 return "Texture/Interactive_background_4.png"
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             return "Texture/Interactive_background_4.png"
 
 class Photo:
@@ -154,7 +155,7 @@ class Photo:
             else:
                 self.photo = data[10]
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             self.photo = ""
     
     def location(self):
@@ -166,7 +167,7 @@ class Photo:
             else:
                 return "Texture/Photos/{0}".format(self.photo)
         except Exception as e:
-            logFile(e)
+            logFile(str(e)+" in "+os.path.basename(__file__))
             return "Texture/Photos/00000-0-0.png"
 
 class OnScreen:
