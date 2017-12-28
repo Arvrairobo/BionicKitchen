@@ -18,11 +18,11 @@ class JanusAPI2BK(object):
         self.photosPath = "/Resources/Texture/Photos/"
         self.jsonPath = "/Resources/Temp/getactiveemployees.json"
         self.tmpPath = "/Resources/Temp/Img/"
-        self.imageEditorPath = "/_testing/imageEditor.py"
+        self.imageEditorPath = "/Resources/imageEditor.py"
         self.photoFormat = ".png"
 
     def __del__(self):
-        #remove(photosPath + files)
+        #remove(realPath+photosPath+files)
         system("trash-empty")
 
     def objJSON(self, objIter):

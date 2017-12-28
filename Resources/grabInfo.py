@@ -1,35 +1,22 @@
 #!/usr/bin/python2.7
 # -*- coding: utf8 -*-
 
-class ViewMySQLdb:
-    def __init__(self):
-        self.host = "localhost"
-        self.user = "root"
-        self.passwd = "896-8660"
-        self.db = "OTDC_Service"
+from datetime import datetime
+from createLog import logFile
+from ViewMySQLdb import ViewMySQLdb
 
-    def connection(self):
-        import MySQLdb
-        self.db = MySQLdb.connect(host = self.host,
-                                  user = self.user,
-                                  passwd = self.passwd,
-                                  db = self.db)
-        return self.db
 
 def catchResult(badge):
-    from datetime import datetime
-
-
     vipList = ["5300C84782"]
     try:
         currentDay = str(datetime.now()).split()[0]
     except Exception as e:
-        # Put error into log
+        logFile(e)
         return "100000"
     try:
-        db = ViewMySQLdb().connection()
+        db = ViewMySQLdb().connDB()
     except Exception as e:
-        # Put error into log
+        logFile(e)
         if e[0] == 1049:
             return "110000"
         elif e[0] == 1045:
@@ -39,8 +26,8 @@ def catchResult(badge):
     try:
         cur = db.cursor()
         cur.execute("SELECT * FROM Current_menu JOIN Employees, Company WHERE Current_menu.employee_id=Employees.employee_id AND Current_menu.company_id=Company.company_id")
-    except:
-        # Put error into log
+    except Exception as e:
+        logFile(e)
         return "120000"
     try:
         for row in cur.fetchall():
@@ -62,19 +49,17 @@ def catchResult(badge):
                 return y
         db.close()
         if badge == "DEFCONMODE":
-            # Put error into log
             return "130000"
-        # Put error into log
         return "130010"
-    except:
-        # Put error into log
+    except Exception as e:
+        logFile(e)
         return "140000"
 
 def updateStatus(row):
     try:
-        db = ViewMySQLdb().connection()
+        db = ViewMySQLdb().connDB()
     except Exception as e:
-        # Put error into log
+        logFile(e)
         if e[0] == 1049:
             return "110000"
         elif e[0] == 1045:
@@ -88,21 +73,20 @@ def updateStatus(row):
         db.commit()
         db.close()
         return served
-    except:
-        # Put error into log
+    except Exception as e:
+        logFile(e)
         return "150000"
 
 def viewStatus(badge):
-    from datetime import datetime
     try:
         currentDay = str(datetime.now()).split()[0]
     except Exception as e:
-        # Put error into log
+        logFile(e)
         return "100000"
     try:
-        db = ViewMySQLdb().connection()
+        db = ViewMySQLdb().connDB()
     except Exception as e:
-        # Put error into log
+        logFile(e)
         if e[0] == 1049:
             return "110000"
         elif e[0] == 1045:
@@ -118,5 +102,5 @@ def viewStatus(badge):
                     db.close()
                     return row[5]
     except Exception as e:
-        # Put error into log
+        logFile(e)
         return "120000"

@@ -8,8 +8,8 @@ class ViewMySQLdb(object):
     """docstring for ViewMySQLdb"""
     def __init__(self):
         super(ViewMySQLdb, self).__init__()
-        self.host = '169.254.174.10'
-        self.user = 'crflores'
+        self.host = 'localhost'
+        self.user = 'root'
         self.passwd = '896-8660'
         self.db = 'OTDC_Service'
 

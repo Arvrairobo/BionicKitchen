@@ -5,6 +5,7 @@ def convertXLSX():
     from xlsxwriter import Workbook
     from datetime import datetime
     from grabInfo import ViewMySQLdb
+    from createLog import logFile
 
 
     nowIs = str(datetime.now()).split()[0]
@@ -37,5 +38,6 @@ def convertXLSX():
             db.close()
         else:
             return "Error to read information from database!"
-    except:
+    except Exception as e:
+        logFile(e)
         return "Fatal Error"

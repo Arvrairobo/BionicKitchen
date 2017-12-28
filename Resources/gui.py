@@ -8,17 +8,18 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.clock import Clock
 from kivy.properties import StringProperty
 
+import sys
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.IN)
 GPIO.setup(27, GPIO.IN)
 GPIO.setup(22, GPIO.IN)
-import sys
 
 from arrangedInfo import OnScreen
 from grabInfo import catchResult, updateStatus, viewStatus
 from rfid import throwInData
 from toXLSX import convertXLSX
+from createLog import logFile
 
 
 Builder.load_file("design.kv")
@@ -50,10 +51,10 @@ class MainScreen(Screen):
                     updateStatus(self.badge)
                     self.dishid.text = "Status: Served"
             except Exception as e:
-                # Put error into log
+                logFile(e)
                 pass
         elif GPIO.input(22):
-            convertXLSX() # Put error into log
+            convertXLSX()
             sys.exit()
 
 class MyScreenManager(ScreenManager):
